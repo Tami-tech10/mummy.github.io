@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif; margin: 0; padding: 0; background-color: #bd9022; overflow: hidden;}
+.mySlides {display: none;}
+
+/* Slideshow container */
+.slideshow-container {
+    margin: auto;
+    text-align: center;
+    max-width: 1000px;
+    max-height: 80vh;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    background-color: #000;
+    z-index: 1; /* Ensures slideshow stays above confetti */
+}
+
+/* Fixed height for images */
+.img {
+    width: 100%;
+    height: 70vh;  /* Set fixed height for images */
+    object-fit: cover;
+    object-position: top;
+}
+
+/* Caption text */
+.text {
+    color: #f2f2f2;
+    font-size: 35px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+}
+
+latin-cross {
+    font-size: 200px;
+    color: #000;
+    text-shadow: 2px 2px 5px #888, 4px 4px 10px #666, 6px 6px 15px #444;
+}
+.slideshow-space{
+    margin-top: 5%;
+}
+
+.play-button {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px 30px;
+    background-color: #ff4081;
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+}
+.play-button:hover {
+    background-color: #e91e63;
+}
+
+/* Dots indicators */
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 4px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    cursor: pointer;
+}
+
+.active {
+    background-color: #5b0945;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+/* Sparkle animation */
+@keyframes float {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 1; }
+}
+
+.sparkle {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #faf605;
+    opacity: 0.8;
+    border-radius: 50%;
+    animation: float 5s linear infinite;
+    box-shadow: 0 0 8px #ffdd57, 0 0 12px #dc6bff;
+}
+
+/* Random colors for variety */
+.sparkle:nth-child(odd) { background-color: #2d0547; }
+.sparkle:nth-child(even) { background-color: #f0d720; }
+
+/* Random starting positions */
+.sparkle:nth-child(1) { left: 10%; animation-delay: 0s; }
+.sparkle:nth-child(2) { left: 20%; animation-delay: 2s; }
+.sparkle:nth-child(3) { left: 30%; animation-delay: 4s; }
+.sparkle:nth-child(4) { left: 40%; animation-delay: 1s; }
+.sparkle:nth-child(5) { left: 50%; animation-delay: 3s; }
+.sparkle:nth-child(6) { left: 60%; animation-delay: 5s; }
+.sparkle:nth-child(7) { left: 70%; animation-delay: 2s; }
+.sparkle:nth-child(8) { left: 80%; animation-delay: 4s; }
+.sparkle:nth-child(9) { left: 90%; animation-delay: 1s; }
+.sparkle:nth-child(10) { left: 95%; animation-delay: 3s; }
+.sparkle:nth-child(11) { left: 5%; animation-delay: 3s; }
+
+/* Responsive text size */
+@media only screen and (max-width: 768px) {
+    .text {font-size: 24px; padding: 15px;}
+}
+
+@media only screen and (max-width: 300px) {
+    .text {font-size: 16px;}
+}
+</style>
+</head>
+<body>
+  <script src="hh.js"></script>
+
+  <!-- Sparkles Background Elements -->
+  <div class="sparkle"></div>
+  <div class="sparkle"></div>
+  <div class="sparkle"></div>
+  <div class="sparkle"></div>
+  <div class="sparkle"></div>
+  <div class="sparkle"></div>
+  <div class="sparkle"></div>
+  <div class="sparkle"></div>
+  <div class="sparkle"></div>
+  <div class="sparkle"></div>
+  <div class="sparkle"></div>
+  
+
+<div class="slideshow-space"></div>
+
+
+<!-- Background audio with an ID for targeting -->
+<audio id="backgroundAudio" loop hidden>
+    <source src="well.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+
+<!-- Button to play the audio -->
+<button class="play-button" onclick="playAudio()">Play Background Music</button>
+
+
+
+<div class="slideshow-container">
+
+    <div class="mySlides fade">
+        <img src="mama6p.jpg" class="img">
+        <div class="text">Happy Birthday Mummy</div>
+    </div>
+
+   
+ <div class="mySlides fade">
+        <img src="mama5.jpg" class="img">
+        <div class="text">May the Lord God continue to guide your footsteps,<p>May He make His face to shine upon you. </p></div>
+    </div>
+
+    <div class="mySlides fade">
+        <img src="ma.jpg" class="img">
+        <div class="text">And because you were born on this blessed day, <span>April 21st</span>, it shall be blessed.</div>
+    </div>
+    
+    <div class="mySlides fade">
+        <img src="mama4p.jpg" class="img">
+        <div class="text">I really thank the All mighty God for giving me a wife such as this , <br>a rare jewel, my all, I love you mummy.
+         <p><i><b>From DAD</b></i>&#9829;</p>   
+        </div>
+    </div>
+    <div class="mySlides fade">
+        <img src="mama3.jpg" class="img">
+        <div class="text">May that dashing smile of yours never come to an end in Jesus Name, Amen!</div>
+    </div>
+    <div class="mySlides fade">
+        <img src="snr.jpg" class="img">
+        <div class="text">Your love ,your care is unopposed, a moment with you is time <br> well spent indeed, I love you mummy
+        <p><i><b>-From MINEYE</b>/i></p>&#9829;</div>
+    </div>
+    <div class="mySlides fade">
+        <img src="mama13p.jpg" class="img">
+        <div class="text"> <b>M</b>- <i>Magnificent </i><p><b>U</b>- <i>Understanding</i></p><p><b>M</b>- <i>A Mother of valour
+        </i></p></div>
+    </div>
+    <div class="mySlides fade">
+        <img src="mama12p.jpg" class="img">
+        <div class="text">Wishing you many more years. Years filled with joy, good health, God's love, and  all your heart desires.<br> I love and appreciate you
+        <p><i><b>-FROM ABOMS</b></i>&#9829;</p></div>
+    </div>
+    <div class="mySlides fade">
+        <img src="inye.jpg" class="img">
+        <div class="text">Happy birthday mummy! You’re the best mummy in the world <br>thank you for all your love and support!
+        <p><i><b>- FROM INYE</b></i> &#9829;</p></div>
+    </div>
+    <div class="mySlides fade">
+        <img src="mama.jpg" class="img">
+        <div class="text"> I pray the Lord blesses you for all the things you've done for us , the sacrifices , the desire for our growth as a family,<br> You will never be put to shame in Jesus name, Amen
+        <p><i><b>- Mama the"Last born"</b></i></p> &#9829;</div>
+    </div>
+   
+    <div class="mySlides fade">
+        <img src="mama9p.jpg" class="img">
+        <div class="text"> And finally as one family we say thank you for being a wife, mother and sister to us, <br>We love you <p> &#9829; &#9829; &#9829; &#9829; &#9829; &#9829; &#9829; &#9829; &#9829; &#9829;</p>
+        <p><i><b>_From the Adas_</b></i></p> <div class="latin-cross">✝</div></div>
+    </div>
+    
+</div>
+
+<br>
+
+<div style="text-align:center">
+    <span class="dot"></span> 
+    <span class="dot"></span> 
+    <span class="dot"></span> 
+    <span class="dot"></span> 
+    <span class="dot"></span> 
+    <span class="dot"></span> 
+    <span class="dot"></span> 
+    <span class="dot"></span>  
+    <span class="dot"></span>  
+    <span class="dot"></span> 
+    <span class="dot"></span> 
+</div>
+
+
+<script>
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}    
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 5000); // Change image every 5 seconds
+}
+
+function playAudio() {
+    const audio = document.getElementById("backgroundAudio");
+    audio.play().then(() => {
+        document.querySelector(".play-button").style.display = "none";
+    }).catch((error) => {
+        console.error("Audio autoplay failed:", error);
+    });
+}
+
+</script>
+
+</body>
+</html>
