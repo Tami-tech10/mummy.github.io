@@ -60,7 +60,8 @@
   }
 
   . content p span {
-      color:#ffd700;
+      color: gold;
+      font-weight: bold;
   }
   /* Button container styling */
   .button-container {
