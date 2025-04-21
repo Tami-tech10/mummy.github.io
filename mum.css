@@ -56,13 +56,9 @@
   .content p {
     font-style: italic;
     font-size: 1.5em;
-    color: #fff;
+    color: gold;
   }
 
-  . content h1 p span {
-      color: gold;
-      font-weight: bold;
-  }
   /* Button container styling */
   .button-container {
     text-align: center;
