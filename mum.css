@@ -39,8 +39,8 @@
   /* Content styling */
   .content {
     position: absolute;
-    top: 80%;
-    left: 30%;
+    top: 90%;
+    left: 10%;
     transform: translate(-50%, -50%);
     color: #fff;
     text-align: center;
