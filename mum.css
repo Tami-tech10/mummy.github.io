@@ -58,7 +58,10 @@
     font-size: 1.5em;
     color: #fff;
   }
-  
+
+  . content span{
+      color:#ffd700;
+  }
   /* Button container styling */
   .button-container {
     text-align: center;
